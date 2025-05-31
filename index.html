@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swapnil Chavan | System Analyst & XStore Developer</title>
+    <title>Swapnil Chavan | System Analyst & Fitness Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -949,6 +949,119 @@
             animation-delay: 0.6s;
         }
 
+        /* Project Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 40px;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.show .modal-content {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: var(--gray);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--primary);
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 300px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 28px;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+
+        .modal-subtitle {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .modal-description {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .modal-features {
+            margin-bottom: 30px;
+        }
+
+        .modal-features h4 {
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+
+        .modal-features ul {
+            padding-left: 20px;
+        }
+
+        .modal-features li {
+            margin-bottom: 8px;
+            color: var(--gray);
+        }
+
+        .modal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 30px;
+        }
+
+        .modal-tag {
+            background-color: rgba(67, 97, 238, 0.1);
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
         /* Responsive Styles */
         @media (max-width: 992px) {
             .hero-content,
@@ -1039,6 +1152,11 @@
                 width: 300px;
                 height: 300px;
             }
+
+            .modal-content {
+                width: 95%;
+                padding: 30px 20px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1061,6 +1179,10 @@
             
             .section {
                 padding: 60px 0;
+            }
+
+            .modal-title {
+                font-size: 24px;
             }
         }
     </style>
@@ -1107,8 +1229,8 @@
                         <i class="fas fa-hand-wave"></i>
                         Hello, I'm Swapnil
                     </span>
-                    <h1 class="animate delay-1">System Analyst & XStore Developer</h1>
-                    <p class="animate delay-2">With 1+ years of experience in System Analysis & XStore Development, I specialize in Oracle Retail, POS Solutions, and implementing retail systems for global clients.</p>
+                    <h1 class="animate delay-1">System Analyst & Fitness Developer</h1>
+                    <p class="animate delay-2">With expertise in system analysis and a passion for fitness technology, I create solutions that bridge the gap between technology and wellness.</p>
                     <div class="hero-buttons animate delay-3">
                         <a href="#contact" class="btn">
                             <i class="fas fa-paper-plane"></i>
@@ -1141,9 +1263,9 @@
             <div class="about-content">
                 <div class="about-text">
                     <h3>Who am I?</h3>
-                    <p>I'm Swapnil Chavan, a passionate System Analyst and XStore Developer with experience in implementing Oracle Retail Solutions. Currently serving as Class Representative at Vellore Institute of Technology while working professionally in the retail technology space.</p>
-                    <p>My expertise lies in Oracle XStore POS systems, retail implementations, and business analysis. I've successfully implemented solutions for clients in the US and Canada, working with technologies like Vertex Tax tools and FedEx integrations.</p>
-                    <p>When I'm not working, I enjoy learning new technologies, contributing to open-source projects, and mentoring fellow developers.</p>
+                    <p>I'm Swapnil Chavan, a passionate System Analyst and Developer with a unique interest in fitness technology. Currently serving as Class Representative at Vellore Institute of Technology while working professionally in the technology space.</p>
+                    <p>My expertise lies in system analysis, business solutions, and developing innovative applications. My "My Fitness Journey" project combines my technical skills with my passion for health and wellness.</p>
+                    <p>When I'm not working, I enjoy fitness activities, learning new technologies, and contributing to projects that make a difference in people's lives.</p>
                     
                     <div class="about-stats">
                         <div class="stat-item">
@@ -1282,17 +1404,17 @@
                 </div>
                 <div class="skill-card animate delay-1">
                     <div class="icon">
-                        <i class="fas fa-truck"></i>
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>FedEx Integration</h3>
-                    <p>Implementing shipping and logistics integrations with FedEx for retail point of sale systems.</p>
+                    <h3>Data Visualization</h3>
+                    <p>Creating insightful visualizations to represent fitness progress and health metrics.</p>
                 </div>
                 <div class="skill-card animate delay-2">
                     <div class="icon">
-                        <i class="fas fa-percent"></i>
+                        <i class="fas fa-code"></i>
                     </div>
-                    <h3>Vertex Tax</h3>
-                    <p>Configuring and implementing Vertex tax solutions for retail operations and compliance.</p>
+                    <h3>Web Development</h3>
+                    <p>Building interactive web applications using HTML, CSS, and JavaScript.</p>
                 </div>
             </div>
         </div>
@@ -1303,69 +1425,70 @@
         <div class="container">
             <div class="section-title">
                 <span class="subtitle">Portfolio</span>
-                <h2>Featured Projects</h2>
-                <p>Some of my recent work and contributions</p>
+                <h2>Featured Project</h2>
+                <p>My fitness technology project that combines health and technology</p>
             </div>
             <div class="projects-container">
                 <div class="project-card animate">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Oracle XStore Implementation">
-                    </div>
-                    <div class="project-info">
-                        <h3>Oracle XStore Implementation</h3>
-                        <p>Implemented Oracle Retail XStore POS system for US & Canada retail clients, including tax configuration and FedEx integration.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Oracle XStore</span>
-                            <span class="project-tag">POS</span>
-                            <span class="project-tag">Retail</span>
-                            <span class="project-tag">FedEx</span>
-                        </div>
-                        <a href="#" class="btn btn-secondary">
-                            <i class="fas fa-external-link-alt"></i>
-                            View Details
-                        </a>
-                    </div>
-                </div>
-                <div class="project-card animate delay-1">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Vertex Tax Implementation">
-                    </div>
-                    <div class="project-info">
-                        <h3>Vertex Tax Implementation</h3>
-                        <p>Configured and implemented Vertex tax tool to generate required tax files for retail store operations.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Vertex Tax</span>
-                            <span class="project-tag">Tax Compliance</span>
-                            <span class="project-tag">Retail</span>
-                        </div>
-                        <a href="#" class="btn btn-secondary">
-                            <i class="fas fa-external-link-alt"></i>
-                            View Details
-                        </a>
-                    </div>
-                </div>
-                <div class="project-card animate delay-2">
                     <div class="project-image">
                         <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="My Fitness Journey">
                     </div>
                     <div class="project-info">
                         <h3>My Fitness Journey</h3>
-                        <p>Personalized fitness tracking application developed using Jupyter Notebook, HTML, and JavaScript to monitor health progress.</p>
+                        <p>A personalized fitness tracking application that monitors health progress and provides data-driven insights.</p>
                         <div class="project-tags">
                             <span class="project-tag">Data Visualization</span>
                             <span class="project-tag">JavaScript</span>
                             <span class="project-tag">Python</span>
                             <span class="project-tag">Web Development</span>
                         </div>
-                        <a href="#" class="btn btn-secondary">
+                        <button class="btn btn-secondary view-project-btn" data-project="fitness">
                             <i class="fas fa-external-link-alt"></i>
                             View Project
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Project Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="My Fitness Journey" class="modal-image">
+            <h3 class="modal-title">My Fitness Journey</h3>
+            <p class="modal-subtitle">Personalized Fitness Tracking Application</p>
+            <p class="modal-description">
+                "My Fitness Journey" is a personalized fitness tracking application developed using Jupyter Notebook, HTML, and JavaScript. 
+                This project enables users to monitor their health progress, receive fitness reports via email, and visualize their 
+                transformation through data-driven insights and images. It combines data analysis with web development to deliver an 
+                engaging and functional user experience.
+            </p>
+            <div class="modal-features">
+                <h4>Key Features:</h4>
+                <ul>
+                    <li>Comprehensive fitness progress tracking with visual metrics</li>
+                    <li>Automated email reports with personalized insights</li>
+                    <li>Data visualization of workout patterns and health trends</li>
+                    <li>Image-based transformation tracking</li>
+                    <li>Responsive web interface accessible on all devices</li>
+                </ul>
+            </div>
+            <div class="modal-tags">
+                <span class="modal-tag">Data Visualization</span>
+                <span class="modal-tag">JavaScript</span>
+                <span class="modal-tag">Python</span>
+                <span class="modal-tag">Web Development</span>
+                <span class="modal-tag">HTML</span>
+                <span class="modal-tag">Jupyter Notebook</span>
+            </div>
+            <a href="#" class="btn">
+                <i class="fas fa-external-link-alt"></i>
+                Visit Project
+            </a>
+        </div>
+    </div>
 
     <!-- Certifications Section -->
     <section class="section" id="certifications">
@@ -1701,6 +1824,35 @@
                 card.style.transition = 'all 0.5s ease';
                 card.style.transform = 'rotateY(0deg) rotateX(0deg)';
             });
+        });
+
+        // Project Modal functionality
+        const modal = document.getElementById('projectModal');
+        const viewProjectBtn = document.querySelector('.view-project-btn');
+        const closeModal = document.querySelector('.close-modal');
+
+        viewProjectBtn.addEventListener('click', () => {
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Add animation to modal content when opened
+        modal.addEventListener('transitionend', () => {
+            if (modal.classList.contains('show')) {
+                document.querySelector('.modal-content').style.transform = 'scale(1)';
+            }
         });
     </script>
 </body>
