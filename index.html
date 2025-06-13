@@ -935,6 +935,138 @@
             margin-bottom: 32px;
         }
 
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background-color: var(--primary);
+            color: white;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: var(--background-light);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-form:hover {
+            transform: rotateY(5deg);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-light);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--background-light);
+            color: white;
+            padding: 80px 0 40px;
+            position: relative;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-logo-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 32px;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            transition: color 0.3s ease;
+            font-size: 15px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
         .footer-social .social-link {
             background-color: rgba(255, 255, 255, 0.1);
             color: white;
@@ -1293,8 +1425,8 @@
             </div>
             <div class="hero-image animate delay-1">
                 <div class="hero-image-wrapper">
-                    <!-- Using a reliable placeholder image URL for your profile picture -->
-                    <img src="https://placehold.co/420x420/0066ff/ffffff?text=Your+Photo" alt="Swapnil Chavan">
+                    <!-- Using the contentFetchId directly as the source for the uploaded image -->
+                    <img src="uploaded:WhatsApp Image 2025-06-01 at 01.21.32.jpg-8f708ba1-3676-433c-8afc-f2fd8ebe4bd6" alt="Swapnil Chavan" onerror="this.onerror=null;this.src='https://placehold.co/420x420/0066ff/ffffff?text=Your+Photo';">
                 </div>
                 <div class="hero-image-decoration"></div>
             </div>
@@ -1339,7 +1471,7 @@
                 </div>
                 <div class="about-image animate delay-2">
                     <div class="about-image-wrapper">
-                        <!-- Updated image source to a placeholder for data science illustration -->
+                        <!-- Using a placeholder for the data science illustration -->
                         <img src="https://placehold.co/500x350/ff3366/ffffff?text=Data+Science+Illustration" alt="Data Science Illustration">
                     </div>
                     <div class="about-image-decoration"></div>
@@ -1877,7 +2009,7 @@
         // Project Modal Logic
         const projectData = {
             'my-fitness-journey': {
-                image: 'https://placehold.co/800x400/8A2BE2/ffffff?text=My+Fitness+Journey',
+                image: 'https://placehold.co/800x400/8A2BE2/ffffff?text=Fitness+Journey',
                 title: 'My Fitness Journey',
                 subtitle: 'Personalized Fitness Tracking Application',
                 description: 'This project is a personalized fitness tracking application developed using Jupyter Notebook, HTML, and JavaScript. It enables users to monitor their health progress, receive fitness reports via email, and visualize their transformation through data-driven insights and images. The application combines data analysis with web development to deliver an engaging and functional user experience.',
