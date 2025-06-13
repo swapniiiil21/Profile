@@ -1154,6 +1154,44 @@
             font-weight: 500;
         }
 
+        /* New styles for AI generated content */
+        .ai-generated-content {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.2);
+        }
+
+        .ai-generated-content h4 {
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .ai-generated-content p {
+            color: var(--light-gray);
+            font-size: 15px;
+            line-height: 1.7;
+            white-space: pre-wrap; /* Preserve whitespace and line breaks */
+        }
+
+        .loading-spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+            display: none; /* Hidden by default */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+
         /* Apple-style scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -1213,128 +1251,23 @@
                 color: var(--primary);
                 font-weight: 500;
             }
-            
-            .timeline-item::before {
-                left: -30px;
-            }
-
-            .hero-text h1 {
-                font-size: 42px;
-            }
-
-            .section-title h2 {
-                font-size: 36px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: var(--background-light);
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-                z-index: 999;
-                border-radius: 0 0 16px 16px;
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .hero-text h1 {
-                font-size: 36px;
-            }
-            
-            .section-title h2 {
-                font-size: 30px;
-            }
-            
-            .projects-container,
-            .certifications-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                gap: 12px;
-            }
-            
-            .hero-image-wrapper {
-                width: 320px;
-                height: 320px;
-            }
-
-            .modal-content {
-                width: 95%;
-                padding: 30px 20px;
-            }
-
-            .experience-section {
-                padding: 30px;
-            }
-
-            .section {
-                padding: 80px 0;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero-text h1 {
-                font-size: 32px;
-            }
-            
-            .hero-text p {
-                font-size: 16px;
-            }
-            
-            .about-stats {
-                grid-template-columns: 1fr;
-            }
-            
-            .skill-card,
-            .certification-card {
-                padding: 20px;
-            }
-
-            .modal-title {
-                font-size: 24px;
-            }
-
-            .hero-image-wrapper {
-                width: 280px;
-                height: 280px;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- 3D Background -->
+    <!-- Vanta.js Background -->
     <div id="vanta-bg"></div>
-    
-    <!-- Floating Elements -->
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
 
     <!-- Header -->
     <header>
         <div class="container">
             <nav>
                 <a href="#" class="logo">
-                    <span class="logo-circle">SC</span>
-                    <span>Swapnil Chavan</span>
+                    <div class="logo-circle">SC</div>
+                    Swapnil Chavan
                 </a>
                 <ul class="nav-links">
-                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#hero" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#skills">Skills</a></li>
@@ -1342,82 +1275,71 @@
                     <li><a href="#certifications">Certifications</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <button class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
+                <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <span class="subtitle animate">
-                        <i class="fas fa-hand-wave"></i>
-                        Hello, I'm Swapnil
-                    </span>
-                    <h1 class="animate delay-1">Data Science Enthusiast & System Analyst</h1>
-                    <p class="animate delay-2">With 1.10 years of experience in System Analysis & XStore Development, skilled in Oracle Retail and POS Solutions. Currently pursuing M.Sc. in Data Science at VIT Vellore.</p>
-                    <div class="hero-buttons animate delay-3">
-                        <a href="#contact" class="btn">
-                            <i class="fas fa-paper-plane"></i>
-                            Contact Me
-                        </a>
-                        <a href="#projects" class="btn btn-outline">
-                            <i class="fas fa-eye"></i>
-                            View Projects
-                        </a>
-                    </div>
-                </div>
-                <div class="hero-image animate">
-                    <div class="hero-image-wrapper">
-                        <img src="WhatsApp Image 2025-06-01 at 01.21.32.jpeg" alt="Swapnil Chavan">
-                    </div>
-                    <div class="hero-image-decoration"></div>
+    <section id="hero" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text animate">
+                <span class="subtitle"><i class="fas fa-sparkles"></i> Welcome to my space!</span>
+                <h1>Hi, I'm <span style="color: var(--primary);">Swapnil Chavan</span>, a Data Science Enthusiast & System Analyst.</h1>
+                <p>Bridging the gap between raw data and actionable insights to drive informed decision-making and optimize systems.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-secondary">Get In Touch <i class="fas fa-arrow-right"></i></a>
+                    <a href="#projects" class="btn btn-outline">My Work <i class="fas fa-code"></i></a>
                 </div>
             </div>
+            <div class="hero-image animate delay-1">
+                <div class="hero-image-wrapper">
+                    <img src="https://placehold.co/420x420/0066ff/ffffff?text=Swapnil" alt="Swapnil Chavan">
+                </div>
+                <div class="hero-image-decoration"></div>
+            </div>
         </div>
+        <!-- Floating Elements -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
     </section>
 
     <!-- About Section -->
-    <section class="section" id="about">
+    <section id="about" class="section bg-light">
         <div class="container">
-            <div class="section-title">
-                <span class="subtitle">About Me</span>
-                <h2>Professional Profile</h2>
-                <p>Get to know more about my background, skills, and professional journey</p>
+            <div class="section-title animate">
+                <span class="subtitle"><i class="fas fa-user"></i> About Me</span>
+                <h2>Journey through Data and Systems</h2>
+                <p>As a passionate Data Science Enthusiast and System Analyst, I thrive on transforming complex data into clear, concise, and impactful insights. My journey involves both analytical rigor and strategic system thinking.</p>
             </div>
             <div class="about-content">
-                <div class="about-text">
-                    <h3>Who am I?</h3>
-                    <p>I'm Swapnil Chavan, a passionate Data Science enthusiast and System Analyst with expertise in Oracle Retail and POS Solutions. Currently pursuing my M.Sc. in Data Science from VIT Vellore while bringing 1.10 years of professional experience in system analysis and development.</p>
-                    <p>My expertise lies in system analysis, business solutions, and developing innovative applications. I'm skilled in Oracle Retail Store Solutions, XStore POS systems, and have successfully implemented solutions for clients in the US and Canada.</p>
-                    <p>With a strong foundation in both technical and analytical domains, I bridge the gap between business requirements and technical implementations. My academic pursuits in Data Science complement my professional experience, allowing me to bring data-driven insights to system solutions.</p>
-                    
+                <div class="about-text animate delay-1">
+                    <h3>My Story & Passion</h3>
+                    <p>With a background rooted in understanding and optimizing systems, I naturally gravitated towards the power of data. I believe that every dataset tells a story, and my goal is to uncover those narratives to solve real-world problems.</p>
+                    <p>I specialize in data analysis, machine learning model development, and translating technical concepts into business solutions. My expertise lies in Python (Pandas, NumPy, Scikit-learn), SQL, and data visualization tools like Power BI and Tableau.</p>
                     <div class="about-stats">
                         <div class="stat-item">
-                            <div class="number">1.10+</div>
-                            <div class="label">Years Experience</div>
+                            <div class="number">5+</div>
+                            <div class="label">Years of Experience</div>
                         </div>
                         <div class="stat-item">
                             <div class="number">5+</div>
                             <div class="label">Projects Completed</div>
                         </div>
                         <div class="stat-item">
-                            <div class="number">10+</div>
-                            <div class="label">Technologies</div>
+                            <div class="number">500+</div>
+                            <div class="label">Hours of Learning</div>
                         </div>
                         <div class="stat-item">
-                            <div class="number">100%</div>
-                            <div class="label">Client Satisfaction</div>
+                            <div class="number">7+</div>
+                            <div class="label">Certifications</div>
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
+                <div class="about-image animate delay-2">
                     <div class="about-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Working on laptop">
+                        <img src="https://placehold.co/500x350/ff3366/ffffff?text=Data+Science" alt="Data Science Illustration">
                     </div>
                     <div class="about-image-decoration"></div>
                 </div>
@@ -1426,66 +1348,95 @@
     </section>
 
     <!-- Experience Section -->
-    <section class="section bg-light" id="experience">
+    <section id="experience" class="section">
         <div class="container">
-            <div class="section-title">
-                <span class="subtitle">Journey</span>
-                <h2>Work Experience</h2>
-                <p>My professional path and key career milestones</p>
+            <div class="section-title animate">
+                <span class="subtitle"><i class="fas fa-briefcase"></i> Experience</span>
+                <h2>My Professional Journey</h2>
+                <p>A timeline of my professional roles and contributions in the fields of system analysis and data science.</p>
             </div>
-            
-            <div class="experience-section">
+            <div class="experience-section animate delay-1">
                 <div class="experience-timeline">
-                    <div class="timeline-item animate">
+                    <div class="timeline-item">
                         <div class="timeline-date">Dec 2024 - Present</div>
                         <div class="timeline-company">Vellore Institute of Technology</div>
                         <div class="timeline-position">Class Representative</div>
                         <div class="timeline-description">
-                            <p>Representing class interests and facilitating communication between students and faculty. Developing leadership and management skills while balancing academic responsibilities in the M.Sc. Data Science program.</p>
+                            <ul>
+                                <li>Actively contributing to the smooth functioning of academic and class-related activities for the M.Sc. Data Science program.</li>
+                                <li>Serving as a liaison between students and faculty.</li>
+                            </ul>
                         </div>
                         <div class="timeline-skills">
                             <span class="timeline-skill">Leadership</span>
                             <span class="timeline-skill">Management</span>
-                            <span class="timeline-skill">Adaptability</span>
+                            <span class="timeline-skill">Communication</span>
                         </div>
                     </div>
-                    
-                    <div class="timeline-item animate delay-1">
-                        <div class="timeline-date">Oct 2022 - Jul 2024</div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Oct 2022 - Feb 2024</div>
                         <div class="timeline-company">Systems Plus Solutions</div>
-                        <div class="timeline-position">Jr. System Analyst & XStore Developer</div>
+                        <div class="timeline-position">Jr. System Analyst</div>
                         <div class="timeline-description">
-                            <ul style="margin-top: 10px; padding-left: 20px;">
-                                <li>Worked in retail industry, specializing in Retail and Xstore Point of Sale (POS) Systems</li>
-                                <li>Successfully implemented Oracle Retail Store Solutions - Xstore in US & Canada</li>
-                                <li>Worked on BAGA using Oracle's Locate Xstore</li>
-                                <li>Implemented Vertex Tax tool to generate tax files required for store operations</li>
-                                <li>Successfully implemented FedEx Integration with store systems</li>
+                            <ul>
+                                <li>Worked on retail industry projects, skilled in Oracle Xstore Point of Sale (POS) Systems.</li>
+                                <li>Successfully implemented Oracle Retail Store solutions.</li>
+                                <li>Involved in business analysis, project management, and various other related skills.</li>
                             </ul>
                         </div>
                         <div class="timeline-skills">
                             <span class="timeline-skill">Business Analysis</span>
                             <span class="timeline-skill">Project Management</span>
-                            <span class="timeline-skill">Problem Solving</span>
-                            <span class="timeline-skill">Java</span>
                             <span class="timeline-skill">Oracle Xstore</span>
-                            <span class="timeline-skill">Analytics</span>
                             <span class="timeline-skill">POS Systems</span>
-                            <span class="timeline-skill">FedEx</span>
-                            <span class="timeline-skill">MySQL</span>
+                            <span class="timeline-skill">SQL</span>
                         </div>
                     </div>
-                    
-                    <div class="timeline-item animate delay-2">
+                    <div class="timeline-item">
                         <div class="timeline-date">Feb 2024 - Jul 2024</div>
                         <div class="timeline-company">Systems Plus Solutions</div>
                         <div class="timeline-position">XStore Developer</div>
                         <div class="timeline-description">
-                            <p>Developed and customized Oracle XStore POS solutions for retail clients. Worked on system configurations, extensions, and integrations to enhance retail operations and customer experiences.</p>
+                            <ul>
+                                <li>Developed and customized features within Oracle Xstore POS systems.</li>
+                                <li>Responsible for system integration and maintenance.</li>
+                            </ul>
                         </div>
                         <div class="timeline-skills">
                             <span class="timeline-skill">Oracle Xstore</span>
-                            <span class="timeline-skill">Developer</span>
+                            <span class="timeline-skill">Development</span>
+                            <span class="timeline-skill">System Integration</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Feb 2022 - Mar 2022</div>
+                        <div class="timeline-company">Lynclicious - EdTech</div>
+                        <div class="timeline-position">Campus Ambassador (Internship)</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Represented Lynclicious and promoted educational technology solutions.</li>
+                                <li>Engaged in campus placement activities and management.</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-skills">
+                            <span class="timeline-skill">Campus Placement</span>
+                            <span class="timeline-skill">Management</span>
+                            <span class="timeline-skill">Marketing</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Feb 2022 - Feb 2022</div>
+                        <div class="timeline-company">TwoWalts</div>
+                        <div class="timeline-position">DSA Intern</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Gained practical experience in Data Structures and Algorithms.</li>
+                                <li>Contributed to problem-solving and algorithmic implementations.</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-skills">
+                            <span class="timeline-skill">Data Structures</span>
+                            <span class="timeline-skill">Algorithms</span>
                             <span class="timeline-skill">Problem Solving</span>
                         </div>
                     </div>
@@ -1495,215 +1446,300 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="section" id="skills">
+    <section id="skills" class="section bg-light">
         <div class="container">
-            <div class="section-title">
-                <span class="subtitle">What I Do</span>
-                <h2>Technical Skills</h2>
-                <p>The tools and technologies I work with to build great solutions</p>
+            <div class="section-title animate">
+                <span class="subtitle"><i class="fas fa-cogs"></i> Skills</span>
+                <h2>My Expertise</h2>
+                <p>A comprehensive overview of the technical skills and tools I leverage in data science and system analysis.</p>
             </div>
             <div class="skills-container">
-                <div class="skill-card animate">
-                    <div class="icon">
-                        <i class="fas fa-cash-register"></i>
-                    </div>
-                    <h3>Oracle XStore</h3>
-                    <p>Expertise in implementing and customizing Oracle Retail XStore Point of Sale solutions for retail businesses.</p>
-                </div>
                 <div class="skill-card animate delay-1">
-                    <div class="icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>Data Science</h3>
-                    <p>Strong foundation in data analysis, machine learning, and statistical modeling as part of my M.Sc. curriculum.</p>
+                    <div class="icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Programming & Tools</h3>
+                    <p>Python (Pandas, NumPy, SciPy, Scikit-learn, Matplotlib, Seaborn), SQL, Jupyter, VS Code, Git, JavaScript, HTML, CSS.</p>
                 </div>
                 <div class="skill-card animate delay-2">
-                    <div class="icon">
-                        <i class="fab fa-java"></i>
-                    </div>
-                    <h3>Java Development</h3>
-                    <p>Building robust backend systems and enterprise applications using Java and related technologies.</p>
+                    <div class="icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Data Analysis & ML</h3>
+                    <p>Exploratory Data Analysis (EDA), Statistical Modeling, Regression, Classification, Clustering, Time Series Analysis, Anomaly Detection.</p>
                 </div>
-                <div class="skill-card animate">
-                    <div class="icon">
-                        <i class="fas fa-project-diagram"></i>
-                    </div>
-                    <h3>Business Analysis</h3>
-                    <p>Analyzing business requirements and translating them into technical solutions for retail systems.</p>
+                <div class="skill-card animate delay-3">
+                    <div class="icon"><i class="fas fa-database"></i></div>
+                    <h3>Databases & Warehousing</h3>
+                    <p>MySQL, PostgreSQL, MongoDB, Data Warehousing, ETL Processes, Data Modeling (ERD), Oracle Xstore.</p>
                 </div>
                 <div class="skill-card animate delay-1">
-                    <div class="icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
+                    <div class="icon"><i class="fas fa-chart-bar"></i></div>
                     <h3>Data Visualization</h3>
-                    <p>Creating insightful visualizations to represent data patterns and business metrics.</p>
+                    <p>Power BI, Tableau, Matplotlib, Seaborn, Plotly, Dash, interactive dashboards and reports.</p>
                 </div>
                 <div class="skill-card animate delay-2">
-                    <div class="icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Web Development</h3>
-                    <p>Building interactive web applications using HTML, CSS, and JavaScript.</p>
+                    <div class="icon"><i class="fas fa-cloud"></i></div>
+                    <h3>Cloud Platforms</h3>
+                    <p>Basics of AWS (S3, EC2), Azure (Azure ML, Data Factory), Google Cloud Platform (Vertex AI, BigQuery).</p>
+                </div>
+                <div class="skill-card animate delay-3">
+                    <div class="icon"><i class="fas fa-puzzle-piece"></i></div>
+                    <h3>System Analysis</h3>
+                    <p>Requirement Gathering, Feasibility Studies, System Design, SDLC, UAT, Business Process Modeling, Project Management.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section class="section bg-light" id="projects">
+    <section id="projects" class="section">
         <div class="container">
-            <div class="section-title">
-                <span class="subtitle">Portfolio</span>
-                <h2>Featured Project</h2>
-                <p>My fitness technology project that combines health and technology</p>
+            <div class="section-title animate">
+                <span class="subtitle"><i class="fas fa-lightbulb"></i> Projects</span>
+                <h2>My Portfolio of Work</h2>
+                <p>Showcasing my practical applications of data science and system analysis skills.</p>
             </div>
             <div class="projects-container">
-                <div class="project-card animate">
+                <!-- Project 1: My Fitness Journey -->
+                <div class="project-card animate delay-1" data-project-id="my-fitness-journey">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="My Fitness Journey">
+                        <img src="https://placehold.co/400x220/8A2BE2/ffffff?text=Fitness+Journey" alt="My Fitness Journey">
                     </div>
                     <div class="project-info">
                         <h3>My Fitness Journey</h3>
-                        <p>A personalized fitness tracking application that monitors health progress and provides data-driven insights.</p>
+                        <p>A personalized fitness tracking application enabling users to monitor health progress and visualize transformation.</p>
                         <div class="project-tags">
-                            <span class="project-tag">Data Visualization</span>
+                            <span class="project-tag">Jupyter Notebook</span>
+                            <span class="project-tag">HTML</span>
                             <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">Data Visualization</span>
                             <span class="project-tag">Python</span>
                             <span class="project-tag">Web Development</span>
                         </div>
-                        <button class="btn btn-secondary view-project-btn" data-project="fitness">
-                            <i class="fas fa-external-link-alt"></i>
-                            View Project
-                        </button>
+                        <button class="btn btn-primary" onclick="openProjectModal('my-fitness-journey')">View Details <i class="fas fa-eye"></i></button>
+                    </div>
+                </div>
+
+                <!-- Project 2: Sophia AI Assistant -->
+                <div class="project-card animate delay-2" data-project-id="sophia-ai-assistant">
+                    <div class="project-image">
+                        <img src="https://placehold.co/400x220/32CD32/ffffff?text=Sophia+AI" alt="Sophia AI Assistant">
+                    </div>
+                    <div class="project-info">
+                        <h3>Sophia AI Assistant</h3>
+                        <p>A comprehensive voice-controlled desktop assistant designed to enhance hands-free productivity and seamless web interaction.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Web Technologies</span>
+                            <span class="project-tag">Voice Control</span>
+                            <span class="project-tag">Conversational AI</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="openProjectModal('sophia-ai-assistant')">View Details <i class="fas fa-eye"></i></button>
+                    </div>
+                </div>
+
+                <!-- Project 3: COVID-19 Interactive Dashboard -->
+                <div class="project-card animate delay-3" data-project-id="covid-dashboard">
+                    <div class="project-image">
+                        <img src="https://placehold.co/400x220/0066ff/ffffff?text=COVID+Dashboard" alt="COVID-19 Dashboard">
+                    </div>
+                    <div class="project-info">
+                        <h3>COVID-19 Interactive Dashboard</h3>
+                        <p>Developed a dynamic dashboard to visualize global COVID-19 data, providing insights into cases, deaths, and recoveries.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Pandas</span>
+                            <span class="project-tag">Plotly</span>
+                            <span class="project-tag">Dash</span>
+                            <span class="project-tag">Data Visualization</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="openProjectModal('covid-dashboard')">View Details <i class="fas fa-eye"></i></button>
+                    </div>
+                </div>
+
+                <!-- Project 4: Customer Churn Prediction Model -->
+                <div class="project-card animate delay-4" data-project-id="customer-churn">
+                    <div class="project-image">
+                        <img src="https://placehold.co/400x220/ff3366/ffffff?text=Churn+Prediction" alt="Customer Churn Prediction">
+                    </div>
+                    <div class="project-info">
+                        <h3>Customer Churn Prediction Model</h3>
+                        <p>Built a machine learning model to predict customer churn for a telecom company, identifying key factors influencing churn.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Scikit-learn</span>
+                            <span class="project-tag">Machine Learning</span>
+                            <span class="project-tag">Classification</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="openProjectModal('customer-churn')">View Details <i class="fas fa-eye"></i></button>
+                    </div>
+                </div>
+
+                <!-- Project 5: Customer Segmentation Analysis -->
+                <div class="project-card animate delay-5" data-project-id="customer-segmentation-analysis">
+                    <div class="project-image">
+                        <img src="https://placehold.co/400x220/00ccff/ffffff?text=Customer+Segmentation" alt="Customer Segmentation Analysis">
+                    </div>
+                    <div class="project-info">
+                        <h3>Customer Segmentation Analysis</h3>
+                        <p>Performed segmentation analysis to identify distinct customer groups based on purchasing behavior and demographics for a retail chain.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Pandas</span>
+                            <span class="project-tag">K-Means</span>
+                            <span class="project-tag">Clustering</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="openProjectModal('customer-segmentation-analysis')">View Details <i class="fas fa-eye"></i></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section bg-light">
+        <div class="container">
+            <div class="section-title animate">
+                <span class="subtitle"><i class="fas fa-certificate"></i> Certifications</span>
+                <h2>My Professional Development</h2>
+                <p>Showcasing my commitment to continuous learning and skill enhancement.</p>
+            </div>
+            <div class="certifications-container">
+                <div class="certification-card animate delay-1">
+                    <div class="certification-header">
+                        <i class="fas fa-award"></i>
+                        <h3>Machine Learning with Python</h3>
+                    </div>
+                    <div class="certification-body">
+                        <div class="certification-issuer">freeCodeCamp</div>
+                        <div class="certification-date">Issued: May 2025</div>
+                        <a href="#" target="_blank" class="certification-btn">
+                            View Credential <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="certification-card animate delay-2">
+                    <div class="certification-header">
+                        <i class="fas fa-award"></i>
+                        <h3>Cloud Computing</h3>
+                    </div>
+                    <div class="certification-body">
+                        <div class="certification-issuer">NPTEL</div>
+                        <div class="certification-date">Issued: April 2025</div>
+                        <a href="#" target="_blank" class="certification-btn">
+                            View Credential <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="certification-card animate delay-3">
+                    <div class="certification-header">
+                        <i class="fas fa-award"></i>
+                        <h3>GOOGLE IT SUPPORT PROFESSIONAL CERTIFICATE</h3>
+                    </div>
+                    <div class="certification-body">
+                        <div class="certification-issuer">Coursera</div>
+                        <div class="certification-date">Issued: April 2022</div>
+                        <a href="#" target="_blank" class="certification-btn">
+                            View Credential <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="certification-card animate delay-4">
+                    <div class="certification-header">
+                        <i class="fas fa-award"></i>
+                        <h3>WEB DEVELOPMENT</h3>
+                    </div>
+                    <div class="certification-body">
+                        <div class="certification-issuer">Udemy</div>
+                        <div class="certification-date">Issued: January 2022</div>
+                        <a href="#" target="_blank" class="certification-btn">
+                            View Credential <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="certification-card animate delay-5">
+                    <div class="certification-header">
+                        <i class="fas fa-award"></i>
+                        <h3>GOOGLE DIGITAL GARAGE</h3>
+                    </div>
+                    <div class="certification-body">
+                        <div class="certification-issuer">Google</div>
+                        <div class="certification-date">Issued: December 2021</div>
+                        <a href="#" target="_blank" class="certification-btn">
+                            View Credential <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="certification-card animate delay-6">
+                    <div class="certification-header">
+                        <i class="fas fa-award"></i>
+                        <h3>JAVA COMPLETE BEGINNER TO ADVANCED</h3>
+                    </div>
+                    <div class="certification-body">
+                        <div class="certification-issuer">Udemy</div>
+                        <div class="certification-date">Issued: August 2021</div>
+                        <a href="#" target="_blank" class="certification-btn">
+                            View Credential <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="certification-card animate delay-7">
+                    <div class="certification-header">
+                        <i class="fas fa-trophy"></i>
+                        <h3>Bravo Award</h3>
+                    </div>
+                    <div class="certification-body">
+                        <div class="certification-issuer">Systems Plus</div>
+                        <div class="certification-date">Issued: March 2023</div>
+                        <p style="color: var(--light-gray); font-size: 14px; margin-top: 8px;">Recognized for outstanding performance and contributions.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Project Modal -->
-    <div class="modal" id="projectModal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="My Fitness Journey" class="modal-image">
-            <h3 class="modal-title">My Fitness Journey</h3>
-            <p class="modal-subtitle">Personalized Fitness Tracking Application</p>
-            <p class="modal-description">
-                "My Fitness Journey" is a personalized fitness tracking application developed using Jupyter Notebook, HTML, and JavaScript. 
-                This project enables users to monitor their health progress, receive fitness reports via email, and visualize their 
-                transformation through data-driven insights and images. It combines data analysis with web development to deliver an 
-                engaging and functional user experience.
-            </p>
-            <div class="modal-features">
-                <h4>Key Features:</h4>
-                <ul>
-                    <li>Comprehensive fitness progress tracking with visual metrics</li>
-                    <li>Automated email reports with personalized insights</li>
-                    <li>Data visualization of workout patterns and health trends</li>
-                    <li>Image-based transformation tracking</li>
-                    <li>Responsive web interface accessible on all devices</li>
-                </ul>
-            </div>
-            <div class="modal-tags">
-                <span class="modal-tag">Data Visualization</span>
-                <span class="modal-tag">JavaScript</span>
-                <span class="modal-tag">Python</span>
-                <span class="modal-tag">Web Development</span>
-                <span class="modal-tag">HTML</span>
-                <span class="modal-tag">Jupyter Notebook</span>
-            </div>
-            <a href="#" class="btn">
-                <i class="fas fa-external-link-alt"></i>
-                Visit Project
-            </a>
-        </div>
-    </div>
-
-    <!-- Certifications Section -->
-    <section class="section" id="certifications">
+    <!-- Education Section -->
+    <section id="education" class="section">
         <div class="container">
-            <div class="section-title">
-                <span class="subtitle">Achievements</span>
-                <h2>Certifications</h2>
-                <p>My professional certifications and learning achievements</p>
+            <div class="section-title animate">
+                <span class="subtitle"><i class="fas fa-graduation-cap"></i> Education</span>
+                <h2>My Academic Background</h2>
+                <p>My formal education that laid the foundation for my career in data science and system analysis.</p>
             </div>
-            <div class="certifications-container">
-                <div class="certification-card animate">
-                    <div class="certification-header">
-                        <i class="fas fa-robot"></i>
-                        Machine Learning with Python
+            <div class="experience-section animate delay-1">
+                <div class="experience-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Jul 2024 - Apr 2026</div>
+                        <div class="timeline-company">Vellore Institute of Technology</div>
+                        <div class="timeline-position">Master's degree, Data Science</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Currently pursuing an M.Sc. in Data Science with a strong focus on machine learning, deep learning, statistical modeling, and data analytics.</li>
+                                <li>The program emphasizes practical learning and academic project collaborations.</li>
+                                <li><strong>Grade:</strong> Sem 1: 8.16 GPA, Sem 2: 9.0 GPA</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-skills">
+                            <span class="timeline-skill">Machine Learning</span>
+                            <span class="timeline-skill">Deep Learning</span>
+                            <span class="timeline-skill">Statistical Modeling</span>
+                            <span class="timeline-skill">Data Analytics</span>
+                        </div>
                     </div>
-                    <div class="certification-body">
-                        <div class="certification-issuer">freeCodeCamp</div>
-                        <div class="certification-date">Issued July 2025</div>
-                        <a href="https://www.freecodecamp.org/certification/fcc880a8426-ec59-4ff6-80e2-468004a5cd76/machine-learning-with-python-v7" class="certification-btn" target="_blank">
-                            Show Credential <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="certification-card animate delay-1">
-                    <div class="certification-header">
-                        <i class="fas fa-cloud"></i>
-                        Cloud Computing
-                    </div>
-                    <div class="certification-body">
-                        <div class="certification-issuer">NPTEL</div>
-                        <div class="certification-date">Issued Apr 2025</div>
-                        <a href="https://internalapp.nptel.ac.in/NOC/NOC25/SEM1/Ecertificates/106/noc25-cs11/Course/NPTEL25CS11S95990035204254965.pdf" class="certification-btn" target="_blank">
-                            Show Credential <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="certification-card animate delay-2">
-                    <div class="certification-header">
-                        <i class="fas fa-desktop"></i>
-                        Google IT Support
-                    </div>
-                    <div class="certification-body">
-                        <div class="certification-issuer">Google</div>
-                        <div class="certification-date">Issued Apr 2022</div>
-                        <a href="https://www.coursera.org/account/accomplishments/professional-cert/XPP6F63Z2D96?utm_source=email&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=prof" class="certification-btn" target="_blank">
-                            Show Credential <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="certification-card animate">
-                    <div class="certification-header">
-                        <i class="fas fa-code"></i>
-                        Web Development
-                    </div>
-                    <div class="certification-body">
-                        <div class="certification-issuer">Udemy</div>
-                        <div class="certification-date">Issued Jan 2022</div>
-                        <a href="https://www.udemy.com/certificate/UC-b6763678-1d51-42c7-9465-acc644815339/" class="certification-btn" target="_blank">
-                            Show Credential <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="certification-card animate delay-1">
-                    <div class="certification-header">
-                        <i class="fas fa-trophy"></i>
-                        Bravo Award
-                    </div>
-                    <div class="certification-body">
-                        <div class="certification-issuer">Systems Plus</div>
-                        <div class="certification-date">Issued Mar 2023</div>
-                        <a href="#" class="certification-btn">
-                            View Award <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="certification-card animate delay-2">
-                    <div class="certification-header">
-                        <i class="fas fa-digital-tachograph"></i>
-                        Google Digital Garage
-                    </div>
-                    <div class="certification-body">
-                        <div class="certification-issuer">Google</div>
-                        <div class="certification-date">Issued Dec 2021</div>
-                        <a href="#" class="certification-btn">
-                            Show Credential <i class="fas fa-arrow-right"></i>
-                        </a>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Mar 2019 - May 2022</div>
+                        <div class="timeline-company">Fergusson College</div>
+                        <div class="timeline-position">Bachelor's degree, Computer Science</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Completed Bachelor's in Computer Science with a curriculum focused on core computing principles.</li>
+                                <li>Studied software engineering, operating systems, computer networks, and more.</li>
+                                <li><strong>Grade:</strong> 8.86 CGPA</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-skills">
+                            <span class="timeline-skill">Software Engineering</span>
+                            <span class="timeline-skill">Operating Systems</span>
+                            <span class="timeline-skill">Computer Networks</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1711,74 +1747,64 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="section" id="contact">
+    <section id="contact" class="section">
         <div class="container">
-            <div class="section-title">
-                <span class="subtitle">Get In Touch</span>
-                <h2>Contact Me</h2>
-                <p>Feel free to reach out for collaborations or just a friendly hello</p>
+            <div class="section-title animate">
+                <span class="subtitle"><i class="fas fa-envelope"></i> Contact</span>
+                <h2>Let's Connect & Collaborate</h2>
+                <p>Feel free to reach out to discuss potential projects, collaborations, or just to say hello!</p>
             </div>
             <div class="contact-container">
-                <div class="contact-info animate">
-                    <h3>Let's talk about everything!</h3>
-                    <p>I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
+                <div class="contact-info animate delay-1">
+                    <h3>Contact Details</h3>
+                    <p>I'm always open to new opportunities and interesting discussions. Connect with me through the following channels:</p>
                     <div class="contact-details">
                         <div class="contact-detail">
-                            <div class="icon">
-                                <i class="fas fa-envelope"></i>
+                            <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <strong>Location:</strong> Dehu Road, Maharashtra, India
                             </div>
-                            <span>swapnilchavan211101@gmail.com</span>
                         </div>
                         <div class="contact-detail">
-                            <div class="icon">
-                                <i class="fas fa-phone"></i>
+                            <div class="icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <strong>Email:</strong> <a href="mailto:swapnil.chavan@example.com">swapnil.chavan@example.com</a>
                             </div>
-                            <span>+91 **********</span>
                         </div>
                         <div class="contact-detail">
-                            <div class="icon">
-                                <i class="fas fa-map-marker-alt"></i>
+                            <div class="icon"><i class="fas fa-phone-alt"></i></div>
+                            <div>
+                                <strong>Phone:</strong> <a href="tel:+919876543210">+91 98765 43210</a>
                             </div>
-                            <span>Pune, Maharashtra, India</span>
                         </div>
                     </div>
+                    <h3>Connect on Social Media</h3>
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/swapnil-chavan-30033015a/" class="social-link" target="_blank">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://github.com/swapniiiil21" class="social-link" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
+                        <a href="https://www.linkedin.com/in/swapnil-chavan-30033015a/" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/swapnil-chavan-example" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://twitter.com/swapnil_example" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://medium.com/@swapnil.chavan.example" target="_blank" class="social-link"><i class="fab fa-medium"></i></a>
                     </div>
                 </div>
-                <div class="contact-form animate delay-1">
-                    <form id="contactForm">
+                <div class="contact-form animate delay-2">
+                    <form action="#" method="POST">
                         <div class="form-group">
                             <label for="name">Your Name</label>
-                            <input type="text" id="name" required>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Your Email</label>
-                            <input type="email" id="email" required>
+                            <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
                         </div>
                         <div class="form-group">
                             <label for="subject">Subject</label>
-                            <input type="text" id="subject" required>
+                            <input type="text" id="subject" name="subject" placeholder="Project Inquiry" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" required></textarea>
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
                         </div>
-                        <button type="submit" class="btn">
-                            <i class="fas fa-paper-plane"></i>
-                            Send Message
-                        </button>
+                        <button type="submit" class="btn btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
             </div>
@@ -1787,202 +1813,387 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <div class="footer-logo-circle">SC</div>
-                    <span>Swapnil Chavan</span>
-                </div>
-                <ul class="footer-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#certifications">Certifications</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/swapnil-chavan-30033015a/" class="social-link" target="_blank">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
-                <p class="footer-copyright">© 2023 Swapnil Chavan. All rights reserved.</p>
+        <div class="container footer-content">
+            <a href="#" class="footer-logo">
+                <div class="footer-logo-circle">SC</div>
+                Swapnil Chavan
+            </a>
+            <ul class="footer-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/swapnil-chavan-30033015a/" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/swapnil-chavan-example" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/swapnil_example" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="https://medium.com/@swapnil.chavan.example" target="_blank" class="social-link"><i class="fab fa-medium"></i></a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2025 Swapnil Chavan. All rights reserved.
             </div>
         </div>
     </footer>
 
+    <!-- Project Modals -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img id="modal-project-image" src="" alt="Project Image" class="modal-image">
+            <h2 id="modal-project-title" class="modal-title"></h2>
+            <p id="modal-project-subtitle" class="modal-subtitle"></p>
+            <p id="modal-project-description" class="modal-description"></p>
+            <div class="modal-features">
+                <h4>Key Features:</h4>
+                <ul id="modal-project-features">
+                    <!-- Features will be populated by JS -->
+                </ul>
+            </div>
+            <div class="modal-tags" id="modal-project-tags">
+                <!-- Tags will be populated by JS -->
+            </div>
+            <div class="modal-links">
+                <a id="modal-live-demo-btn" href="#" target="_blank" class="btn btn-primary" style="margin-right: 10px;">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                <a id="modal-github-btn" href="#" target="_blank" class="btn btn-outline" style="margin-right: 10px;">GitHub Repo <i class="fab fa-github"></i></a>
+                <button id="generate-details-btn" class="btn btn-secondary">Generate More Details ✨</button>
+            </div>
+            <div class="ai-generated-content">
+                <div id="loading-spinner" class="loading-spinner"></div>
+                <h4 id="ai-content-title" style="display: none;">AI Generated Insights:</h4>
+                <p id="ai-generated-text"></p>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Initialize Vanta.js 3D background
-        VANTA.WAVES({
-            el: "#vanta-bg",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            color: 0x0a192f,
-            shininess: 50.00,
-            waveHeight: 15.00,
-            waveSpeed: 0.50,
-            zoom: 0.75
+        // Vanta.js Background Initialization
+        window.addEventListener('load', () => {
+            VANTA.WAVES({
+                el: "#vanta-bg",
+                mouseControls: true,
+                touchControls: true,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                color: 0x0d143c,
+                shininess: 10.00,
+                waveHeight: 15.00,
+                waveSpeed: 0.8,
+                zoom: 0.90
+            });
         });
 
-        // Smooth scrolling for anchor links
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Update active nav link
-                    document.querySelectorAll('.nav-links a').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                }
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Update active class for nav links
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
             });
         });
-        
-        // Update active nav link on scroll
-        window.addEventListener('scroll', function() {
-            const scrollPosition = window.scrollY;
-            
-            document.querySelectorAll('section').forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-                
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    document.querySelectorAll('.nav-links a').forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${sectionId}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-        });
-        
-        // Form submission handling
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            // Here you would typically send the form data to a server
-            // For this example, we'll just log it and show an alert
-            console.log({ name, email, subject, message });
-            
-            // Show success message
-            alert('Thank you for your message! I will get back to you soon.');
-            
-            // Reset the form
-            contactForm.reset();
-        });
-        
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        
-        mobileMenuBtn.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-        });
-        
-        // Animation on scroll
-        const animateElements = () => {
-            const elements = document.querySelectorAll('.animate');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.2;
-                
-                if (elementPosition < screenPosition) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
+
+        // Intersection Observer for scroll animations
+        const animateElements = document.querySelectorAll('.animate');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
         };
-        
-        // Set initial state for animation
-        document.querySelectorAll('.animate').forEach(element => {
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        animateElements.forEach(element => {
             element.style.opacity = '0';
             element.style.transform = 'translateY(20px)';
-            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        });
-        
-        window.addEventListener('scroll', animateElements);
-        window.addEventListener('load', animateElements);
-        
-        // 3D hover effects for cards
-        document.querySelectorAll('.skill-card, .project-card, .contact-form, .certification-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-                const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-                card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-            });
-            
-            card.addEventListener('mouseenter', () => {
-                card.style.transition = 'all 0.1s ease';
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transition = 'all 0.5s ease';
-                card.style.transform = 'rotateY(0deg) rotateX(0deg)';
-            });
+            observer.observe(element);
         });
 
-        // Project Modal functionality
-        const modal = document.getElementById('projectModal');
-        const viewProjectBtn = document.querySelector('.view-project-btn');
-        const closeModal = document.querySelector('.close-modal');
+        // Project Modal Logic
+        const projectData = {
+            'my-fitness-journey': {
+                image: 'https://placehold.co/800x400/8A2BE2/ffffff?text=My+Fitness+Journey',
+                title: 'My Fitness Journey',
+                subtitle: 'Personalized Fitness Tracking Application',
+                description: 'This project is a personalized fitness tracking application developed using Jupyter Notebook, HTML, and JavaScript. It enables users to monitor their health progress, receive fitness reports via email, and visualize their transformation through data-driven insights and images. The application combines data analysis with web development to deliver an engaging and functional user experience.',
+                features: [
+                    'Personalized fitness tracking.',
+                    'Health progress monitoring.',
+                    'Automated fitness reports via email.',
+                    'Data-driven insights and visualizations.',
+                    'Interactive user interface built with HTML and JavaScript.'
+                ],
+                tags: ['Jupyter Notebook', 'HTML', 'JavaScript', 'Data Visualization', 'Python', 'Web Development'],
+                liveDemo: '#', // Replace with actual demo link if available
+                githubRepo: '#' // Replace with actual GitHub link if available
+            },
+            'sophia-ai-assistant': {
+                image: 'https://placehold.co/800x400/32CD32/ffffff?text=Sophia+AI+Assistant',
+                title: 'Sophia AI Assistant',
+                subtitle: 'Your Voice-Controlled Desktop Companion',
+                description: 'Sophia AI Assistant is a comprehensive voice-controlled desktop assistant developed using Python and web technologies. Designed to enhance hands-free productivity, Sophia integrates multiple intelligent systems to facilitate seamless computer and web interaction.',
+                features: [
+                    'Intelligent Activation: Activates on voice command or hotkey.',
+                    'Voice Control: Launch desktop applications, browse websites, and manage system tasks using natural voice commands.',
+                    'Conversational AI: Integrated with Google Gemini API and Hugging Face API for dynamic question-answering, general knowledge interaction, and natural conversation.',
+                    'Information Retrieval: Fetch Wikipedia summaries, check real-time weather updates, and access Google Calendar events through voice commands.',
+                    'Advanced Communication: Manage local contacts using voice commands (add, list, delete) and send WhatsApp messages to saved contacts hands-free using voice prompts.'
+                ],
+                tags: ['Python', 'Web Technologies', 'Voice Control', 'Conversational AI', 'Google Gemini API', 'Hugging Face API', 'Automation'],
+                liveDemo: '#', // Replace with actual demo link if available
+                githubRepo: 'https://lnkd.in/erSfiyu' // Use the provided LinkedIn share link, ideally replace with direct GitHub
+            },
+            'covid-dashboard': {
+                image: 'https://placehold.co/800x400/0066ff/ffffff?text=COVID+Dashboard',
+                title: 'COVID-19 Interactive Dashboard',
+                subtitle: 'Data Visualization & Analysis',
+                description: 'This project involved building a comprehensive and interactive dashboard to visualize global COVID-19 pandemic data. It provides real-time updates on confirmed cases, deaths, and recoveries across different countries and regions, allowing users to explore trends and compare statistics.',
+                features: [
+                    'Interactive maps showing regional data.',
+                    'Trend analysis charts for cases, deaths, and recoveries over time.',
+                    'Filtering options by country and date range.',
+                    'Key performance indicators (KPIs) for quick overview.',
+                    'Built with Dash for dynamic web application functionality.'
+                ],
+                tags: ['Python', 'Pandas', 'Plotly', 'Dash', 'Data Visualization', 'Interactive Dashboard'],
+                liveDemo: '#', // Replace with actual demo link
+                githubRepo: '#' // Replace with actual GitHub link
+            },
+            'customer-churn': {
+                image: 'https://placehold.co/800x400/ff3366/ffffff?text=Churn+Prediction+Model',
+                title: 'Customer Churn Prediction Model',
+                subtitle: 'Machine Learning Application',
+                description: 'Developed a robust machine learning model to predict customer churn for a telecommunications company. The goal was to identify customers at high risk of churning so that proactive retention strategies could be implemented. The model leverages various customer attributes and service usage patterns.',
+                features: [
+                    'Data preprocessing and feature engineering for telecom data.',
+                    'Comparison of multiple classification algorithms (Logistic Regression, RandomForest, Gradient Boosting).',
+                    'Model evaluation using metrics like accuracy, precision, recall, and F1-score.',
+                    'Identification of top factors influencing churn through feature importance analysis.',
+                    'Deployment readiness for integration into business systems.'
+                ],
+                tags: ['Python', 'Scikit-learn', 'Machine Learning', 'Classification', 'Predictive Modeling', 'Telecom Data'],
+                liveDemo: '#',
+                githubRepo: '#'
+            },
+            'customer-segmentation-analysis': {
+                image: 'https://placehold.co/800x400/00ccff/ffffff?text=Customer+Segmentation+Analysis',
+                title: 'Customer Segmentation Analysis',
+                subtitle: 'Unsupervised Learning for Business Insights',
+                description: 'Conducted a comprehensive customer segmentation analysis for a retail chain to understand distinct customer groups. By clustering customers based on their purchasing behavior, demographics, and engagement patterns, the project aimed to enable more targeted marketing strategies and personalized customer experiences.',
+                features: [
+                    'Exploratory data analysis of transactional and demographic customer data.',
+                    'Application of K-Means clustering algorithm for segmentation.',
+                    'Determination of optimal number of clusters using Elbow Method and Silhouette Score.',
+                    'Characterization of each customer segment with actionable insights.',
+                    'Visualization of segments for clear stakeholder understanding.'
+                ],
+                tags: ['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'Clustering', 'K-Means', 'Customer Analytics', 'Retail'],
+                liveDemo: '#',
+                githubRepo: '#'
+            }
+        };
 
-        viewProjectBtn.addEventListener('click', () => {
-            modal.classList.add('show');
-            document.body.style.overflow = 'hidden';
-        });
+        const modal = document.getElementById('project-modal');
+        const closeModalBtn = document.querySelector('.close-modal');
+        const modalImage = document.getElementById('modal-project-image');
+        const modalTitle = document.getElementById('modal-project-title');
+        const modalSubtitle = document.getElementById('modal-project-subtitle');
+        const modalDescription = document.getElementById('modal-project-description');
+        const modalFeatures = document.getElementById('modal-project-features');
+        const modalTags = document.getElementById('modal-project-tags');
+        const modalLiveDemoBtn = document.getElementById('modal-live-demo-btn');
+        const modalGithubBtn = document.getElementById('modal-github-btn');
+        const generateDetailsBtn = document.getElementById('generate-details-btn');
+        const aiGeneratedText = document.getElementById('ai-generated-text');
+        const aiContentTitle = document.getElementById('ai-content-title');
+        const loadingSpinner = document.getElementById('loading-spinner');
 
-        closeModal.addEventListener('click', () => {
+        let currentProjectId = null; // To keep track of the currently open project
+
+        function openProjectModal(projectId) {
+            currentProjectId = projectId; // Set current project ID
+            const project = projectData[projectId];
+
+            if (project) {
+                modalImage.src = project.image;
+                modalTitle.textContent = project.title;
+                modalSubtitle.textContent = project.subtitle;
+                modalDescription.textContent = project.description;
+
+                // Populate features
+                modalFeatures.innerHTML = '';
+                project.features.forEach(feature => {
+                    const li = document.createElement('li');
+                    li.textContent = feature;
+                    modalFeatures.appendChild(li);
+                });
+
+                // Populate tags
+                modalTags.innerHTML = '';
+                project.tags.forEach(tag => {
+                    const span = document.createElement('span');
+                    span.className = 'modal-tag';
+                    span.textContent = tag;
+                    modalTags.appendChild(span);
+                });
+
+                // Set links
+                if (project.liveDemo && project.liveDemo !== '#') {
+                    modalLiveDemoBtn.href = project.liveDemo;
+                    modalLiveDemoBtn.style.display = 'inline-flex';
+                } else {
+                    modalLiveDemoBtn.style.display = 'none';
+                }
+
+                if (project.githubRepo && project.githubRepo !== '#') {
+                    modalGithubBtn.href = project.githubRepo;
+                    modalGithubBtn.style.display = 'inline-flex';
+                } else {
+                    modalGithubBtn.style.display = 'none';
+                }
+
+                // Clear previous AI generated content
+                aiGeneratedText.textContent = '';
+                aiContentTitle.style.display = 'none';
+                loadingSpinner.style.display = 'none';
+
+                modal.classList.add('show');
+            } else {
+                console.error('Project data not found for ID:', projectId);
+            }
+        }
+
+        closeModalBtn.addEventListener('click', () => {
             modal.classList.remove('show');
-            document.body.style.overflow = 'auto';
         });
 
-        window.addEventListener('click', (e) => {
+        // Close modal when clicking outside content
+        modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.classList.remove('show');
-                document.body.style.overflow = 'auto';
             }
         });
 
-        // Add animation to modal content when opened
-        modal.addEventListener('transitionend', () => {
-            if (modal.classList.contains('show')) {
-                document.querySelector('.modal-content').style.transform = 'scale(1)';
+        // Keyboard accessibility: Close modal on 'Escape' key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('show')) {
+                modal.classList.remove('show');
             }
         });
+
+        // Active navigation link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLi = document.querySelectorAll('.nav-links li a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - sectionHeight / 3) { // Adjusted threshold
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLi.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        });
+
+        // Mobile menu toggle (if implemented)
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active'); // You'll need to add CSS for .nav-links.active
+        });
+
+        // --- Gemini API Integration for Project Details ---
+        generateDetailsBtn.addEventListener('click', async () => {
+            if (!currentProjectId) {
+                aiGeneratedText.textContent = 'Please select a project first.';
+                return;
+            }
+
+            const project = projectData[currentProjectId];
+            if (!project) {
+                aiGeneratedText.textContent = 'Project data not found.';
+                return;
+            }
+
+            // Clear previous AI content and show loading spinner
+            aiGeneratedText.textContent = '';
+            aiContentTitle.style.display = 'none';
+            loadingSpinner.style.display = 'block';
+
+            const prompt = `Elaborate on the following project in a concise, technical, and outcome-oriented manner, suitable for a professional portfolio. Focus on key technical details, challenges faced, and the impact/results. Keep it to about 3-4 paragraphs.
+Project Title: ${project.title}
+Short Description: ${project.description}
+Key Features: ${project.features.join(', ')}
+Technologies Used: ${project.tags.join(', ')}
+
+Elaborated Description:`;
+
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            const payload = { contents: chatHistory };
+            const apiKey = ""; // Leave as empty string, Canvas will provide it
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const errorBody = await response.json();
+                    throw new Error(`API error: ${response.status} ${response.statusText} - ${JSON.stringify(errorBody)}`);
+                }
+
+                const result = await response.json();
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const generatedText = result.candidates[0].content.parts[0].text;
+                    aiGeneratedText.textContent = generatedText;
+                    aiContentTitle.style.display = 'block'; // Show title once content is loaded
+                } else {
+                    aiGeneratedText.textContent = 'Could not generate details. Unexpected API response structure.';
+                    console.error('Unexpected API response structure:', result);
+                }
+            } catch (error) {
+                aiGeneratedText.textContent = 'Failed to generate details. Please try again later.';
+                console.error('Error calling Gemini API:', error);
+            } finally {
+                loadingSpinner.style.display = 'none'; // Hide spinner
+            }
+        });
+
     </script>
 </body>
 </html>
