@@ -215,12 +215,17 @@
         .hero-content {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            /* Changed to space-around to distribute space when content is not flex-1 */
+            justify-content: space-around;
             gap: 40px;
         }
 
         .hero-text {
+            /* Now takes full width as there's no other flex item */
             flex: 1;
+            max-width: 800px; /* Adjust as needed for better centering */
+            margin: 0 auto; /* Center the text when it's the only item */
+            text-align: center; /* Center align text */
         }
 
         .hero-text .subtitle {
@@ -254,30 +259,17 @@
             margin-bottom: 32px;
             color: var(--light-gray);
             max-width: 600px;
+            margin: 0 auto 32px auto; /* Center the paragraph */
             font-weight: 400;
         }
 
         .hero-buttons {
             display: flex;
             gap: 16px;
+            justify-content: center; /* Center buttons */
         }
 
         /* Removed hero-image and related wrapper/decoration styles */
-        .hero-empty-space {
-            flex: 1;
-            width: 420px;
-            height: 420px;
-            background: linear-gradient(145deg, #1a1a2e, #232347);
-            border-radius: 24px;
-            border: 8px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--light-gray);
-            font-size: 24px;
-            font-weight: 600;
-        }
 
 
         /* About Section */
@@ -326,12 +318,15 @@
         .about-content {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center; /* Center align content as there's only one column now */
             gap: 60px;
         }
 
         .about-text {
+            /* Now takes full width as there's no other flex item */
             flex: 1;
+            max-width: 800px; /* Adjust as needed */
+            margin: 0 auto; /* Center the text */
         }
 
         .about-text h3 {
@@ -383,21 +378,7 @@
         }
 
         /* Removed about-image and related wrapper/decoration styles */
-        .about-empty-space {
-            flex: 1;
-            width: 500px;
-            height: 350px;
-            background: linear-gradient(145deg, #1a1a2e, #232347);
-            border-radius: 16px;
-            border: 8px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--light-gray);
-            font-size: 24px;
-            font-weight: 600;
-        }
+
 
         /* Experience Section */
         .experience-section {
@@ -882,138 +863,6 @@
             margin-bottom: 32px;
         }
 
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background-color: var(--primary);
-            color: white;
-            transition: all 0.3s ease;
-            font-size: 18px;
-        }
-
-        .social-link:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-3px);
-        }
-
-        .contact-form {
-            flex: 1;
-            background-color: var(--background-light);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transform-style: preserve-3d;
-            transition: transform 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .contact-form:hover {
-            transform: rotateY(5deg);
-        }
-
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--text-light);
-            font-weight: 500;
-            font-size: 15px;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 14px 18px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background-color: rgba(255, 255, 255, 0.05);
-            color: var(--text-light);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.2);
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--background-light);
-            color: white;
-            padding: 80px 0 40px;
-            position: relative;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .footer-logo {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .footer-logo-circle {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            margin-bottom: 32px;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--light-gray);
-            transition: color 0.3s ease;
-            font-size: 15px;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 32px;
-        }
-
         .footer-social .social-link {
             background-color: rgba(255, 255, 255, 0.1);
             color: white;
@@ -1304,20 +1153,14 @@
                 text-align: center;
             }
             
-            /* Remove image elements on smaller screens, keep layout */
-            .hero-empty-space,
-            .about-empty-space {
-                width: 100%;
-                height: 300px; /* Adjust height for smaller screens */
+            /* Ensure text fills width on smaller screens */
+            .hero-text,
+            .about-text {
+                max-width: 100%;
             }
-            
+
             .hero-buttons {
                 justify-content: center;
-            }
-            
-            .hero-image,
-            .about-image {
-                margin-top: 50px;
             }
             
             .social-links {
@@ -1377,10 +1220,7 @@
                     <a href="#projects" class="btn btn-outline">My Work <i class="fas fa-code"></i></a>
                 </div>
             </div>
-            <!-- Replaced hero-image with an empty div -->
-            <div class="hero-empty-space animate delay-1">
-                Your Profile Placeholder
-            </div>
+            <!-- Removed the hero-empty-space div entirely -->
         </div>
         <!-- Floating Elements -->
         <div class="floating-element"></div>
@@ -1420,10 +1260,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Replaced about-image with an empty div -->
-                <div class="about-empty-space animate delay-2">
-                    Data Science Illustration Placeholder
-                </div>
+                <!-- Removed the about-empty-space div entirely -->
             </div>
         </div>
     </section>
