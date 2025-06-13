@@ -262,54 +262,23 @@
             gap: 16px;
         }
 
-        .hero-image {
+        /* Removed hero-image and related wrapper/decoration styles */
+        .hero-empty-space {
             flex: 1;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            perspective: 1000px;
-        }
-
-        .hero-image-wrapper {
             width: 420px;
             height: 420px;
+            background: linear-gradient(145deg, #1a1a2e, #232347);
             border-radius: 24px;
-            overflow: hidden;
             border: 8px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 0.5s ease;
-            background: linear-gradient(145deg, #1a1a2e, #232347);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-gray);
+            font-size: 24px;
+            font-weight: 600;
         }
 
-        .hero-image-wrapper:hover {
-            transform: rotateY(10deg) rotateX(5deg) scale(1.03);
-        }
-
-        .hero-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-image-decoration {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 2px solid var(--primary);
-            border-radius: 24px;
-            top: 15px;
-            left: 15px;
-            z-index: -1;
-            transition: all 0.5s ease;
-            opacity: 0.6;
-        }
-
-        .hero-image:hover .hero-image-decoration {
-            top: 10px;
-            left: 10px;
-        }
 
         /* About Section */
         .section {
@@ -413,43 +382,21 @@
             color: var(--light-gray);
         }
 
-        .about-image {
+        /* Removed about-image and related wrapper/decoration styles */
+        .about-empty-space {
             flex: 1;
-            position: relative;
-            perspective: 1000px;
-        }
-
-        .about-image-wrapper {
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 0.5s ease;
+            width: 500px;
+            height: 350px;
             background: linear-gradient(145deg, #1a1a2e, #232347);
-            border: 8px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .about-image-wrapper:hover {
-            transform: rotateY(-8deg) rotateX(5deg);
-        }
-
-        .about-image-wrapper img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .about-image-decoration {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 2px solid var(--primary);
             border-radius: 16px;
-            top: 15px;
-            left: 15px;
-            z-index: -1;
-            opacity: 0.6;
+            border: 8px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-gray);
+            font-size: 24px;
+            font-weight: 600;
         }
 
         /* Experience Section */
@@ -935,6 +882,138 @@
             margin-bottom: 32px;
         }
 
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background-color: var(--primary);
+            color: white;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: var(--background-light);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-form:hover {
+            transform: rotateY(5deg);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-light);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--background-light);
+            color: white;
+            padding: 80px 0 40px;
+            position: relative;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-logo-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 32px;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            transition: color 0.3s ease;
+            font-size: 15px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
         .footer-social .social-link {
             background-color: rgba(255, 255, 255, 0.1);
             color: white;
@@ -1225,6 +1304,13 @@
                 text-align: center;
             }
             
+            /* Remove image elements on smaller screens, keep layout */
+            .hero-empty-space,
+            .about-empty-space {
+                width: 100%;
+                height: 300px; /* Adjust height for smaller screens */
+            }
+            
             .hero-buttons {
                 justify-content: center;
             }
@@ -1291,12 +1377,9 @@
                     <a href="#projects" class="btn btn-outline">My Work <i class="fas fa-code"></i></a>
                 </div>
             </div>
-            <div class="hero-image animate delay-1">
-                <div class="hero-image-wrapper">
-                    <!-- Placeholder image instead of a personal photo -->
-                    <img src="https://placehold.co/420x420/0066ff/ffffff?text=Your+Profile" alt="Generic Profile Placeholder">
-                </div>
-                <div class="hero-image-decoration"></div>
+            <!-- Replaced hero-image with an empty div -->
+            <div class="hero-empty-space animate delay-1">
+                Your Profile Placeholder
             </div>
         </div>
         <!-- Floating Elements -->
@@ -1337,12 +1420,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="about-image animate delay-2">
-                    <div class="about-image-wrapper">
-                        <!-- Using a placeholder for the data science illustration -->
-                        <img src="https://placehold.co/500x350/ff3366/ffffff?text=Data+Science+Illustration" alt="Data Science Illustration">
-                    </div>
-                    <div class="about-image-decoration"></div>
+                <!-- Replaced about-image with an empty div -->
+                <div class="about-empty-space animate delay-2">
+                    Data Science Illustration Placeholder
                 </div>
             </div>
         </div>
